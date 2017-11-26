@@ -28,7 +28,7 @@ void piPush(Pilha *p, int digito)
     Elemento *n = (Elemento*)malloc(sizeof(Elemento));
     if(n==NULL)
         exit(1);
-    n->info = v;
+    n->info = digito;
     n->prox = p->prim;
     p->prim = n;
 }

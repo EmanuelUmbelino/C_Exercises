@@ -1,5 +1,5 @@
-#include <stdio.h>
 #include "fila.h"
+#include <stdio.h>
 
 void separa_filas(Fila *f, Fila *f_pares, Fila *f_impares)
 {

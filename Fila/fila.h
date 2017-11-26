@@ -10,4 +10,4 @@ int vazia(Fila *f);
 //Libera a fila completa
 void libera(Fila *f);
 //Imprime fila
-void imprime_fila(Fila *f)
+void imprime_fila(Fila *f);

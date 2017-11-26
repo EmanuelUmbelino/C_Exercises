@@ -1,4 +1,4 @@
-#include <fila.h>
+#include "fila.h"
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -50,7 +50,7 @@ int retira(Fila *f)
     }
     t = f->ini;
     v = t->v;
-    f->ini = f->prox;
+    f->ini = t->prox;
     if(f->ini == NULL)
         f->fim = NULL;
     free(t);
@@ -74,7 +74,7 @@ void imprime_fila(Fila *f)
 {
     Lista *t;
     printf("\n");
-    for (t=f->ini;t!=NULL;t->prox)
+    for (t=f->ini;t!=NULL;t=t->prox)
     {
         printf("%d  ",t->v);
     }

@@ -60,7 +60,7 @@ int retira(Fila *f)
 
 void libera(Fila *f)
 {
-    Listsa *q = f->ini;
+    Lista *q = f->ini;
     while (q!=NULL)
     {
         Lista *t = q->prox;
@@ -68,4 +68,14 @@ void libera(Fila *f)
         q = t;
     }
     free(f);
+}
+
+void imprime_fila(Fila *f)
+{
+    Lista *t;
+    printf("\n");
+    for (t=f->ini;t!=NULL;t->prox)
+    {
+        printf("%d  ",t->v);
+    }
 }

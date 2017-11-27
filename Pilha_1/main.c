@@ -1,6 +1,15 @@
 #include <stdio.h>
 #include "pilha.h"
 
+// funcao que imprime o grande numero da pilha
+void piImprime(Pilha *p)
+{
+    printf("\nResultado da soma:");
+    while(!piEhVazia(p))
+    {
+        printf("%d",piPop(p));
+    }
+}
 void somaGrandesNumeros()
 {
     Pilha *p1 = piCria(), *p2 = piCria(), *r1 = piCria();
@@ -22,17 +31,24 @@ void somaGrandesNumeros()
         piPush(p2,aux);
     }
     aux = 0;
-    while(!piEhVazia(p1) || !piEhVazia(p1))
+    while(!piEhVazia(p1) || !piEhVazia(p2))
     {
-        aux += aux1;
+        aux = aux1;
         aux1 = piPop(p1);
         aux2 = piPop(p2);
-        aux = aux1 + aux2;
-        aux1 = aux % 10;
+        aux += aux1 + aux2;
+        aux1 = aux / 10;
         if(aux < 10)
             piPush(r1,aux);
         else
-            piPush(r1,aux/10);
+            piPush(r1,aux%10);
+    }
+    if(aux1!=0)
+        piPush(r1,aux1);
+    printf("\nResultado da soma:");
+    while(!piEhVazia(r1))
+    {
+        printf("%d",piPop(r1));
     }
 
     piLibera(p1);piLibera(p2);piLibera(r1);
@@ -40,5 +56,6 @@ void somaGrandesNumeros()
 
 int main()
 {
+    somaGrandesNumeros();
     return 0;
 }
